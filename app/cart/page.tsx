@@ -2,26 +2,12 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
-
-// This would typically come from a global state management solution or API
-const initialCartItems = [
-  { id: 1, name: "Comfortable Armchair", price: 299.99, quantity: 1, image: "/placeholder.svg?height=100&width=100" },
-  { id: 2, name: "Modern Coffee Table", price: 149.99, quantity: 2, image: "/placeholder.svg?height=100&width=100" },
-]
+import { useCart } from "../contexts/CartContext"
 
 export default function CartPage() {
-  const [cartItems, setCartItems] = useState(initialCartItems)
+  const { cart, updateQuantity, removeFromCart } = useCart()
 
-  const updateQuantity = (id: number, newQuantity: number) => {
-    setCartItems(
-      cartItems
-        .map((item) => (item.id === id ? { ...item, quantity: Math.max(0, newQuantity) } : item))
-        .filter((item) => item.quantity > 0),
-    )
-  }
-
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
   const tax = subtotal * 0.1 // Assuming 10% tax
   const total = subtotal + tax
 
@@ -29,7 +15,7 @@ export default function CartPage() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Your Shopping Cart</h1>
 
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <div className="text-center py-8">
           <p className="text-xl mb-4">Your cart is empty</p>
           <Link
@@ -42,7 +28,7 @@ export default function CartPage() {
       ) : (
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2">
-            {cartItems.map((item) => (
+            {cart.map((item) => (
               <div key={item.id} className="flex items-center border-b py-4">
                 <Image
                   src={item.image || "/placeholder.svg"}
@@ -71,6 +57,9 @@ export default function CartPage() {
                   </button>
                 </div>
                 <p className="ml-4 font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+                <button onClick={() => removeFromCart(item.id)} className="ml-4 text-red-500 hover:text-red-700">
+                  Remove
+                </button>
               </div>
             ))}
           </div>

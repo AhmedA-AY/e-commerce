@@ -16,13 +16,6 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/categories/living-room" className="text-gray-600 hover:text-gray-800">
-                Kitchen
-              </Link>
-            </li>
-            <li>
-            </li>
-            <li>
               <Link href="/categories/bedroom" className="text-gray-600 hover:text-gray-800">
                 Bedroom
               </Link>
@@ -30,6 +23,11 @@ export default function Header() {
             <li>
               <Link href="/categories/office" className="text-gray-600 hover:text-gray-800">
                 Office
+              </Link>
+            </li>
+            <li>
+              <Link href="/categories/kitchen" className="text-gray-600 hover:text-gray-800">
+                Kitchen
               </Link>
             </li>
           </ul>
