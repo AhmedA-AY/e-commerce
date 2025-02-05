@@ -19,7 +19,7 @@ export default function CartPage() {
         <div className="text-center py-8">
           <p className="text-xl mb-4">Your cart is empty</p>
           <Link
-            href="/categories/all"
+            href="/"
             className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition duration-300"
           >
             Continue Shopping

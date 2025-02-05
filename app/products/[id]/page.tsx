@@ -5,14 +5,16 @@ import { Star, Truck, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { useCart } from "@/app/contexts/CartContext"
 import { useState } from "react"
+import React from "react"
 
 export default function ProductPage({ params }: { params: { id: string } }) {
+  const id = React.use(Promise.resolve(params.id))
   const { addToCart } = useCart()
   const [quantity, setQuantity] = useState(1)
 
   // In a real application, you would fetch the product data based on the ID
   const product = {
-    id: Number.parseInt(params.id),
+    id: Number.parseInt(id),
     name: "Comfortable Armchair",
     price: 299.99,
     description: "A stylish and comfortable armchair perfect for any living room or reading nook.",

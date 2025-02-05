@@ -29,6 +29,11 @@ export default function Footer() {
                   Office
                 </Link>
               </li>
+              <li>
+                <Link href="/categories/bedroom" className="text-gray-600 hover:text-gray-800">
+                  Kitchen
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

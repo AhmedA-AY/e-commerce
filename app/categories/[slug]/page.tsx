@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 // This would typically come from a database or API
-const categories = ["living-room", "bedroom", "office"]
+const categories = ["living-room", "bedroom", "office", "kitchen"]
 
 export default function CategoryPage({ params }: { params: { slug: string } }) {
   if (!categories.includes(params.slug)) {

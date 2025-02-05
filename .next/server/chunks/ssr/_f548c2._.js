@@ -21,7 +21,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const categories = [
     "living-room",
     "bedroom",
-    "office"
+    "office",
+    "kitchen"
 ];
 function CategoryPage({ params }) {
     if (!categories.includes(params.slug)) {

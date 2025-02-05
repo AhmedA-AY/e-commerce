@@ -64,7 +64,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Shop by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {["Living Room", "Bedroom", "Office"].map((category) => (
+            {["Living Room", "Bedroom", "Office","Kitchen"].map((category) => (
               <Link key={category} href={`/categories/${category.toLowerCase().replace(" ", "-")}`} className="group">
                 <div className="relative h-64 rounded-lg overflow-hidden">
                   <Image
